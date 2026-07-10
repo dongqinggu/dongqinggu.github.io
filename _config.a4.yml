@@ -1,0 +1,102 @@
+menu:
+  首页: /
+  文章: /list/
+  关于: /about/
+  标签: /tags/
+  分类: /categories/
+
+showInMenu:
+  - 文章
+  - 关于
+  - 标签
+  - 分类
+
+index:
+  header:
+    - "我忘明月很久，明月始终望我"
+    - "人山人海，人来人往"
+    - "看过大海的人不会忘记海的广阔"
+    - "纸上得来终觉浅，绝知此事要躬行"
+  hitokoto: false
+  footer: Email:demo@example.com
+  titlePosition: left
+  width: small
+  list: false
+
+footerLink:
+  info: © 2024 A4 Theme Preview
+  友链: /friends/
+  关于: /about/
+
+post:
+  footer: 🌊看过大海的人不会忘记海的广阔🌊
+  themeInfo: true
+  width: middle
+  titlePosition: center
+
+favicon: /img/favicon.png
+isRoundedAvatar: false
+isAvatarRotating: false
+displayTitleInTab: true
+
+tool:
+  darkMode: true
+  returnToTop: true
+  returnToLast: true
+  topToc: true
+  leftToc: true
+  recentUpdatePost: true
+
+indexInfo:
+  allWordCount: true
+  allViewCount: true
+
+postInfo:
+  updateDate: true
+  wordCount: true
+  readTime: true
+  viewCount: true
+  prevAndNextLink:
+    status: true
+    prevInfo: 上一篇
+    nextInfo: 下一篇
+  endContent: 以上
+
+listInfo:
+  enable: true
+  hoverStyle: underline
+  hoverColor: "#4f7dde"
+  animationDuration: 800
+
+cdn:
+  enable: false
+  choose: zzko
+
+color:
+  enable: false
+
+imageShow:
+  enable: false
+
+font:
+  enable: false
+
+lightgallery:
+  thumbnail: true
+  zoom: true
+  rotate: true
+  autoplay: true
+  fullScreen: true
+  pager: false
+
+comment:
+  enable: false
+
+inject:
+  css: css/custom.css
+
+baseElement:
+  href:
+  target:
+
+version: v2.0.1
