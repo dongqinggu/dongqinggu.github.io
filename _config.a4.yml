@@ -18,10 +18,10 @@ index:
     - "看过大海的人不会忘记海的广阔"
     - "纸上得来终觉浅，绝知此事要躬行"
   hitokoto: false
-  footer: Email:demo@example.com
+  footer: Email:d_q_g@live.com
   titlePosition: left
   width: small
-  list: false
+  list: true
 
 footerLink:
   info: © 2024 A4 Theme Preview

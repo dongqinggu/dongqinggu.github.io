@@ -6,12 +6,6 @@ title: 关于
 
 一个热爱编程、阅读和写作的开发者。
 
-### 技能
-
-- **语言**: JavaScript / TypeScript, Python
-- **前端**: React, Vue, Node.js
-- **工具**: VS Code, Git, Docker
-
 ### 兴趣
 
 - 📚 阅读技术书籍和科幻小说
@@ -21,7 +15,7 @@ title: 关于
 
 ### 联系
 
-- Email: demo@example.com
-- GitHub: [github.com/demo](https://github.com/demo)
+- Email: d_q_g@live.com
+- GitHub: [github.com/dongqinggu](https://github.com/dongqinggu)
 
 > "看过大海的人，不会忘记海的广阔。"
