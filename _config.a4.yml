@@ -13,12 +13,9 @@ showInMenu:
 
 index:
   header:
-    - "我忘明月很久，明月始终望我"
-    - "人山人海，人来人往"
-    - "看过大海的人不会忘记海的广阔"
-    - "纸上得来终觉浅，绝知此事要躬行"
+    - "学无止境，行者无疆"
   hitokoto: false
-  footer: Email:d_q_g@live.com
+  footer: d_q_g@live.com
   titlePosition: left
   width: small
   list: true
@@ -29,8 +26,8 @@ footerLink:
   关于: /about/
 
 post:
-  footer: 🌊看过大海的人不会忘记海的广阔🌊
-  themeInfo: true
+  footer: ""
+  themeInfo: false
   width: middle
   titlePosition: center
 
