@@ -1,23 +1,28 @@
 #!/bin/bash
 set -e
 
-cd "$(dirname "$0")"
+DIR="$(cd "$(dirname "$0")" && pwd)"
+cd "$DIR"
 
 echo "🔨 Building..."
-npx hexo clean > /dev/null 2>&1
-npx hexo generate > /dev/null 2>&1
+"$DIR/node_modules/.bin/hexo" clean
+"$DIR/node_modules/.bin/hexo" generate
 
 echo "📦 Deploying to gh-pages..."
 TEMP=$(mktemp -d)
 cp -r public/* "$TEMP/"
 touch "$TEMP/.nojekyll"
 
-git fetch origin gh-pages -q
-git -C "$TEMP" init -q
-git -C "$TEMP" checkout -b gh-pages
-git -C "$TEMP" add -A
-git -C "$TEMP" commit -m "Deploy: $(date '+%Y-%m-%d %H:%M')" || true
-git -C "$TEMP" push -f origin gh-pages
+rm -rf /tmp/gh-pages-deploy
+git worktree add /tmp/gh-pages-deploy origin/gh-pages 2>/dev/null || true
+cd /tmp/gh-pages-deploy
+find . -not -path './.git/*' -not -name '.git' -delete
+cp -r "$TEMP"/* .
+touch .nojekyll
+git add -A
+git commit -m "Deploy: $(date '+%Y-%m-%d %H:%M')" || true
+git push origin HEAD:gh-pages
 
-rm -rf "$TEMP"
+cd "$DIR"
+rm -rf /tmp/gh-pages-deploy "$TEMP"
 echo "✅ Done — https://dongqinggu.github.io"
