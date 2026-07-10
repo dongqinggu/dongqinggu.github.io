@@ -69,7 +69,7 @@ include:
 exclude:
 ignore:
 
-theme: A4
+theme: a4
 
 deploy:
   type: ''
