@@ -24,19 +24,17 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Debug - check theme exists
-        run: |
-          ls node_modules/hexo-theme-a4/package.json && cat node_modules/hexo-theme-a4/package.json | grep version | head -1
-          cat _config.yml | grep theme
-
       - name: Generate static files
-        run: npx hexo generate
+        run: ./node_modules/.bin/hexo generate --debug
 
-      - name: Debug - check output
+      - name: Check output
         run: |
-          ls -la public/index.html
-          wc -c public/index.html
-          head -5 public/index.html
+          echo "=== index.html size ==="
+          wc -c public/index.html || echo "FILE NOT FOUND"
+          echo "=== public dir ==="
+          ls public/ | head -10
+          echo "=== first 3 lines ==="
+          head -3 public/index.html || echo "EMPTY"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
