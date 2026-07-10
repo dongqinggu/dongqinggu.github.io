@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<section class="post-grid" aria-label="文章列表">
+  {% for post in site.posts %}
+    <article class="paper-card">
+      <a href="{{ post.url | relative_url }}">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y-%m-%d' }}</time>
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.excerpt | strip_html | normalize_whitespace | truncate: 120 }}</p>
+      </a>
+    </article>
+  {% endfor %}
+</section>

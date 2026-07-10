@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<article class="a4-paper markdown-body">
+  <header class="post-header">
+    <p class="eyebrow">{{ page.date | date: '%Y-%m-%d' }}</p>
+    <h1>{{ page.title }}</h1>
+    {% if page.tags %}<p class="tags">{% for tag in page.tags %}<span>{{ tag }}</span>{% endfor %}</p>{% endif %}
+  </header>
+  {{ content }}
+</article>
+<nav class="post-pager" aria-label="文章翻页">
+  {% if page.previous %}<a href="{{ page.previous.url | relative_url }}">← {{ page.previous.title }}</a>{% endif %}
+  {% if page.next %}<a href="{{ page.next.url | relative_url }}">{{ page.next.title }} →</a>{% endif %}
+</nav>
