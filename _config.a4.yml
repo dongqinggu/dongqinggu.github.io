@@ -31,7 +31,7 @@ post:
   width: middle
   titlePosition: center
 
-favicon: /img/favicon.png
+favicon: /img/logo.png
 isRoundedAvatar: false
 isAvatarRotating: false
 displayTitleInTab: true
