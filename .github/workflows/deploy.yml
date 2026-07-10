@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Pages
 
 on:
   push:
@@ -6,40 +6,27 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: write
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '22'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Generate static files
-        run: ./node_modules/.bin/hexo generate --debug
-
-      - name: Check output
-        run: |
-          echo "=== index.html size ==="
-          wc -c public/index.html || echo "FILE NOT FOUND"
-          echo "=== public dir ==="
-          ls public/ | head -10
-          echo "=== first 3 lines ==="
-          head -3 public/index.html || echo "EMPTY"
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      - run: npm install
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          publish_branch: gh-pages
-          cname: ''
+          path: ./public
+
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/deploy-pages@v4
